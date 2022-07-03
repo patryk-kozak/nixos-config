@@ -5,6 +5,7 @@ let
     vscodeExtensions = [
       latest-nixpkgs.vscode-extensions.arrterian.nix-env-selector
       pkgs.vscode-extensions.bbenoist.nix
+      latest-nixpkgs.vscode-extensions.jnoortheen.nix-ide
     ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       {
         name = "theme-monokai-pro-vscode";
@@ -27,7 +28,7 @@ let
       {
         name = "vscode-bazel";
         publisher = "BazelBuild";
-        version = "0.4.0";
+        version = "0.5.0";
         sha256 = "0p018878pxr7vxr6375fywchzq1xwvxnjrb4zvp444s6p3sknxxg";
       }
       {
