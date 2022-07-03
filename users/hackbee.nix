@@ -29,6 +29,7 @@ in
             ".config/polybar/init.sh".source = ./.config/polybar/init.sh;
             ".config/rofi/config.rasi".source = ./.config/rofi/config.rasi;
             ".config/rofi/monokai.rasi".source = ./.config/rofi/monokai.rasi;
+            ".config/discord/settings.json".source = ./.config/discord/settings.json;
         };
     
 
@@ -58,7 +59,8 @@ in
       jq
       git
       gcc
-      (latest-nixpkgs.discord.override {
+      (discord.override {
+        version = "0.0.18";
         src = latest-nixpkgs.fetchurl {
           url = "https://dl.discordapp.net/apps/linux/0.0.18/discord-0.0.18.tar.gz";
           sha256 = "BBc4n6Q3xuBE13JS3gz/6EcwdOWW57NLp2saOlwOgMI=";
