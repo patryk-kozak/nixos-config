@@ -10,7 +10,7 @@ in
         isNormalUser = true;
         group = "hackbee";
         extraGroups = [
-            "networkmanager"
+            "networkmanager" "wheel"
         ];
         shell = pkgs.lib.mkForce pkgs.zsh;
     };
