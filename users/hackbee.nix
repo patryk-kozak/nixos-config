@@ -6,18 +6,18 @@ let
   };
 in
 {
-    users.users.patryk = {
+    users.users.hackbee = {
         isNormalUser = true;
-        group = "patryk";
+        group = "hackbee";
         extraGroups = [
             "networkmanager"
         ];
         shell = pkgs.lib.mkForce pkgs.zsh;
     };
 
-    users.groups.patryk = {};
+    users.groups.hackbee = {};
 
-    home-manager.users.patryk = {
+    home-manager.users.hackbee = {
         home.file = {
             ".config/gtk-3.0/settings.ini".source = ./.config/gtk-3.0/settings.ini;
             ".config/alacritty/alacritty.yml".source = ./.config/alacritty/alacritty.yml;
@@ -54,7 +54,6 @@ in
       google-cloud-sdk
       terraform
       jq
-      zoom-us
       git
       gcc
       latest-nixpkgs.discord

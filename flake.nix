@@ -74,7 +74,7 @@
         ./modules/nvidia-desktop.nix
         #./modules/virtualisation/docker.nix
         #./modules/cluster/k8s-dev-single-node.nix
-        ./users/patryk.nix
+        ./users/hackbee.nix
         ./programs/steam.nix
       ];
     };
