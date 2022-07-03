@@ -39,8 +39,9 @@
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
 
-  system.autoUpgrade = {
-      enable = false;
+  system = {
+    autoUpgrade.enable = false;
+    stateVersion = "22.05";
   };
 }
 

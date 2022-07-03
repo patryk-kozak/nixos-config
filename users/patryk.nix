@@ -7,11 +7,15 @@ let
 in
 {
     users.users.patryk = {
+        isNormalUser = true;
+        group = "patryk";
         extraGroups = [
             "networkmanager"
         ];
         shell = pkgs.lib.mkForce pkgs.zsh;
     };
+
+    users.groups.patryk = {};
 
     home-manager.users.patryk = {
         home.file = {
@@ -24,7 +28,7 @@ in
             ".config/rofi/config.rasi".source = ./.config/rofi/config.rasi;
             ".config/rofi/monokai.rasi".source = ./.config/rofi/monokai.rasi;
         };
-    };
+    
 
     home.packages = with pkgs; [
       arandr
@@ -42,6 +46,7 @@ in
       slack-dark
       spotify
       vlc
+      nixfmt
       vim
       lshw
       pciutils
@@ -52,17 +57,14 @@ in
       zoom-us
       git
       gcc
-      taskwarrior
-      (latest-nixpkgs.discord.override {
-        version = "0.0.18";
-        src = latest-nixpkgs.fetchurl {
-          url = "https://dl.discordapp.net/apps/linux/0.0.18/discord-0.0.18.tar.gz";
-          sha256 = "BBc4n6Q3xuBE13JS3gz/6EcwdOWW57NLp2saOlwOgMI=";
-        };
-      })
-      latest-nixpkgs.firefox
-      latest-nixpkgs.joplin
-      latest-nixpkgs.joplin-desktop
+      latest-nixpkgs.discord
+      # (latest-nixpkgs.discord.override {
+      #   version = "0.0.18";
+      #   src = latest-nixpkgs.fetchurl {
+      #     url = "https://dl.discordapp.net/apps/linux/0.0.18/discord-0.0.18.tar.gz";
+      #     sha256 = "BBc4n6Q3xuBE13JS3gz/6EcwdOWW57NLp2saOlwOgMI=";
+      #   };
+      # })
       latest-nixpkgs.zoom-us
       jdk
       # Developing in Python
@@ -75,6 +77,7 @@ in
         ]
       ))
     ];
+
     services.dunst = {
       enable = true;
       iconTheme = {
@@ -146,17 +149,7 @@ in
           "ripgrep"
         ];
         theme = "pygmalion";
-        plugins = [
-	        {
-	            name = "powerlevel10k";
-	            src = pkgs.fetchFromGitHub {
-		            owner = "romkatv";
-		            repo = "powerlevel10k";
-		            rev = "8a676a9157d2b0e00e88d06456ac7317f11c0317";
-		            sha256 = "0fkfh8j7rd8mkpgz6nsx4v7665d375266shl1aasdad8blgqmf0c";
-	            };
-	        }
-        ]; 
       };
     };
-};
+        };
+}

@@ -60,7 +60,7 @@
         home-manager.nixosModules.home-manager
         # sops-nix.nixosModules.sops
         # Common stuff
-        ./modules/common-base.nix
+        #./modules/common-base.nix
         #./modules/secrets.nix
       ];
     };
