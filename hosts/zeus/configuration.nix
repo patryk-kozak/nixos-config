@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 
 {
-  nix.trustedUsers = [ "root" "patryk" "audio" ];
+  nix.trustedUsers = [ "root" "hackbee" "audio" ];
   nixpkgs.config.allowUnfree = true;
     
   # Use the systemd-boot EFI boot loader.
@@ -13,6 +13,7 @@
     efiSupport = true;
     useOSProber = true;
     devices = [ "nodev" ];
+    splashImage = "../../assets/grub-splash.jpg";
     splashMode = "stretch";
     extraEntries = ''
 	menuentry "Reboot" {
