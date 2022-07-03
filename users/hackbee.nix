@@ -17,6 +17,8 @@ in
 
     users.groups.hackbee = {};
 
+    home-manager.useGlobalPkgs = true;
+    home-manager.useUserPackages = true;
     home-manager.users.hackbee = {
         home.file = {
             ".config/gtk-3.0/settings.ini".source = ./.config/gtk-3.0/settings.ini;
