@@ -20,8 +20,8 @@ tray-position = right
 module-margin = ${monokai.module-margin}
 padding = ${monokai.padding}
 modules-center = date
-modules-left = powermenu i3 title
-modules-right = cpu memory filesystem pulseaudio battery
+modules-left = i3 title
+modules-right = cpu memory filesystem pulseaudio battery powermenu
 border-bottom-size = ${monokai.border-bottom-size}
 border-bottom-color = ${monokai.border-bottom-color}
 
