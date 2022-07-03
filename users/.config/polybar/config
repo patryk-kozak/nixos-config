@@ -1,7 +1,7 @@
 [monokai]
-font-one = "Hack Regular:style=Regular:size=10;2"
-font-two = "Hack Regular:style=Regular:size=10;2"
-font-three = "FontAwesome:style=Regular:size=10;2"
+font-one = "Hack Regular:style=Regular:size=14;2"
+font-two = "Hack Regular:style=Regular:size=14;2"
+font-three = "FontAwesome:style=Regular:size=14;2"
 bg-colour = #272822
 fg-colour = #F8F8F2
 border-bottom-size = 2
@@ -92,15 +92,15 @@ label-visible-background = #272822
 label-visible-underline = #a1efe4
 label-visible-padding = 1
 
-label-separator = |
-label-separator-padding = 1
+label-separator = <>
+label-separator-padding = 3
 label-separator-foreground = #ffb52a
 
 [module/cpu]
 type = internal/cpu
 
 ; Seconds to sleep between updates
-interval = 1
+interval = 3
 
 label =   %percentage%%
 
@@ -108,7 +108,7 @@ label =   %percentage%%
 type = internal/memory
 
 ; Seconds to sleep between updates
-interval = 1
+interval = 3
 
 label =  %percentage_used%%
 
@@ -117,7 +117,6 @@ type = internal/fs
 
 ; Mountpoints to display
 mount-0 = /
-mount-1 = /home
 label-mounted =  %mountpoint%: %percentage_used%%
 
 [module/pulseaudio]
@@ -127,7 +126,7 @@ type = internal/pulseaudio
 ; Default: true
 use-ui-max = true
 label-volume =   %percentage%%
-label-muted = Sound muted
+label-muted =  sound muted
 click-right = "/run/current-system/sw/bin/pavucontrol &"
 
 [module/powermenu]
