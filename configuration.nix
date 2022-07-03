@@ -210,6 +210,9 @@ in
       kbfs
       keybase
       openvpn
+      gnumake
+      tigervnc
+      go
     ];
     gtk = {
 	enable = true;
