@@ -32,7 +32,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # start rofi (a program launcher)
-bindsym $mod+d exec "rofi -combi-modi window,drun,ssh -show combi -modi combi" 
+bindsym $mod+space exec "rofi -combi-modi window,drun,ssh -show combi -modi combi" 
 
 # Lock screen
 bindsym Mod4+l exec "betterlockscreen -l"
@@ -165,7 +165,7 @@ bindsym $mod+r mode "resize"
 client.focused #a6e22e #272822 #f8f8f2 #a6e22e #a6e22e
 
 # i3-gaps related stuff
-for_window [class=".*"] border pixel 2
+for_window [class=".*"] border pixel 1
 smart_gaps on
 smart_borders on
-gaps inner 5
+gaps inner 10
