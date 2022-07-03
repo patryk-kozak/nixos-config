@@ -13,7 +13,7 @@
     efiSupport = true;
     useOSProber = true;
     devices = [ "nodev" ];
-    splashImage = "../../assets/grub-splash.jpg";
+    splashImage = ../../assets/grub-splash.jpg;
     splashMode = "stretch";
     extraEntries = ''
 	menuentry "Reboot" {
