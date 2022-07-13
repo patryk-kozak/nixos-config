@@ -10,10 +10,12 @@ in
         isNormalUser = true;
         group = "hackbee";
         extraGroups = [
-            "networkmanager" "wheel"
+            "networkmanager" "wheel" "docker"
         ];
         shell = pkgs.lib.mkForce pkgs.zsh;
     };
+
+    virtualisation.docker.enable = true;
 
     users.groups.hackbee = {};
 
