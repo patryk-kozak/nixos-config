@@ -10,6 +10,8 @@
     enable = true;
     layout = "pl";
 
+    libinput.enable = true;
+
     displayManager.gdm = {
       wayland = false;
       enable = true;
