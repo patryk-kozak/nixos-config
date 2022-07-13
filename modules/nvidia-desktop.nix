@@ -10,7 +10,13 @@
     enable = true;
     layout = "pl";
 
-    libinput.enable = true;
+    libinput = {
+      enable = true;
+      touchpad = {
+        tapping = true;
+        naturalScrolling = true;
+      };
+    };
 
     displayManager.gdm = {
       wayland = false;
