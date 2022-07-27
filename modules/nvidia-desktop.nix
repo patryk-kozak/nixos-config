@@ -4,7 +4,7 @@
   services.xserver = {
     # Enable propriatary drivers
     videoDrivers = [
-      "amdgpu" "nvidia"
+      "nvidia"
     ];
 
     enable = true;
