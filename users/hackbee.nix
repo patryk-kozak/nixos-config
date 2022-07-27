@@ -36,7 +36,6 @@ in
     
 
     home.packages = with pkgs; [
-      xorg.xbacklight
       arandr
       kbfs
       keybase
