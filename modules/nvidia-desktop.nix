@@ -4,7 +4,7 @@
   services.xserver = {
     # Enable propriatary drivers
     videoDrivers = [
-      "nvidia"
+      "amdgpu" "nvidia"
     ];
 
     enable = true;
@@ -45,6 +45,14 @@
       nvidiaBusId = "PCI:1:0:0";
     };
     modesetting.enable = true;
+  };
+
+  boot = {
+    initrd.kernelModules = [ "amdgpu" ];
+    kernelParams = [
+      "video=DP-2:2560x1440@144"
+      "video=eDP-1:2560x1440@144"
+    ];
   };
 
   fonts.fonts = with pkgs; [

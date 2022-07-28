@@ -29,7 +29,7 @@
     device = "/dev/disk/by-uuid/f1cf2ffc-983a-4bd9-8b73-0f30733a8edd";
     preLVM = true;
   };
-
+  
   boot.kernelPackages = pkgs.linuxPackages_5_18;
   networking.hostName = "zeus";
   networking.networkmanager.enable = true;
