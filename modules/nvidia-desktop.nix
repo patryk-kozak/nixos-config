@@ -50,8 +50,8 @@
   boot = {
     initrd.kernelModules = [ "amdgpu" ];
     kernelParams = [
-      "video=DP-2:2560x1440@144"
       "video=eDP-1:2560x1440@144"
+      "video=DP-2:2560x1440@144"
     ];
   };
 
