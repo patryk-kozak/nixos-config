@@ -6,13 +6,18 @@ let
   };
 in
 {
-    users.users.hackbee = {
+    users.users = {
+      hackbee = {
         isNormalUser = true;
         group = "hackbee";
         extraGroups = [
             "networkmanager" "wheel" "docker"
         ];
         shell = pkgs.lib.mkForce pkgs.zsh;
+        openssh.authorizedKeys.keyFiles = [
+          /home/hackbee/.ssh/authorized_keys
+        ]
+      };
     };
 
     virtualisation.docker.enable = true;
