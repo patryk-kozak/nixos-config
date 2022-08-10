@@ -84,7 +84,7 @@ in
     services.openssh = {
       enable = true;
       passwordAuthentication = true;
-    }
+    };
 
     services.dunst = {
       enable = true;
