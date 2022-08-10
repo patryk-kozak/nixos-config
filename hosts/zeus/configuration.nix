@@ -40,6 +40,11 @@
   networking.useDHCP = false;
   networking.interfaces.eno1.useDHCP = true;
 
+  services.openssh = {
+    enable = true;
+    passwordAuthentication = true;
+  };
+
   system = {
     autoUpgrade.enable = false;
     stateVersion = "22.05";
