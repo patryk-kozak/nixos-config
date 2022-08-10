@@ -139,7 +139,7 @@ in
     programs.tmux = {
       enable = true;
       clock24 = true;
-    }
+    };
     programs.zsh = {
       enable = true;
       enableAutosuggestions = true;
