@@ -16,7 +16,7 @@ in
         shell = pkgs.lib.mkForce pkgs.zsh;
         openssh.authorizedKeys.keyFiles = [
           /home/hackbee/.ssh/authorized_keys
-        ]
+        ];
       };
     };
 
