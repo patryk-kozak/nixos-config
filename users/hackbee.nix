@@ -42,6 +42,9 @@ in
     
 
     home.packages = with pkgs; [
+      #bazel
+      nodejs
+      bazel_5
       arandr
       kbfs
       keybase
