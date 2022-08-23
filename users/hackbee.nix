@@ -1,70 +1,72 @@
-{ config, pkgs, latest-nixpkgs, ... }:
-
-let
-  preConfiguredVscode = import ../programs/vscode.nix { 
+{
+  config,
+  pkgs,
+  latest-nixpkgs,
+  ...
+}: let
+  preConfiguredVscode = import ../programs/vscode.nix {
     inherit config pkgs latest-nixpkgs;
   };
-in
-{
-    users.users = {
-      hackbee = {
-        isNormalUser = true;
-        group = "hackbee";
-        extraGroups = [
-            "networkmanager" "wheel" "docker"
-        ];
-        shell = pkgs.lib.mkForce pkgs.zsh;
-        openssh.authorizedKeys.keyFiles = [
-          # needs --impure T_T fix it!
-          /home/hackbee/.ssh/authorized_keys
-        ];
-      };
+in {
+  users.users = {
+    hackbee = {
+      isNormalUser = true;
+      group = "hackbee";
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+      ];
+      shell = pkgs.lib.mkForce pkgs.zsh;
+      openssh.authorizedKeys.keyFiles = [
+        # needs --impure T_T fix it!
+        /home/hackbee/.ssh/authorized_keys
+      ];
+    };
+  };
+
+  virtualisation.docker.enable = true;
+
+  users.groups.hackbee = {};
+
+  home-manager.useGlobalPkgs = true;
+  home-manager.useUserPackages = true;
+  home-manager.users.hackbee = {
+    home.file = {
+      ".config/gtk-3.0/settings.ini".source = ./.config/gtk-3.0/settings.ini;
+      ".config/alacritty/alacritty.yml".source = ./.config/alacritty/alacritty.yml;
+      ".config/htop/htoprc".source = ./.config/htop/htoprc;
+      ".config/i3/config".source = ./.config/i3/config;
+      ".config/polybar/config".source = ./.config/polybar/config;
+      ".config/polybar/init.sh".source = ./.config/polybar/init.sh;
+      ".config/rofi/config.rasi".source = ./.config/rofi/config.rasi;
+      ".config/rofi/monokai.rasi".source = ./.config/rofi/monokai.rasi;
+      ".config/discord/settings.json".source = ./.config/discord/settings.json;
     };
 
-    virtualisation.docker.enable = true;
-
-    users.groups.hackbee = {};
-
-    home-manager.useGlobalPkgs = true;
-    home-manager.useUserPackages = true;
-    home-manager.users.hackbee = {
-        home.file = {
-            ".config/gtk-3.0/settings.ini".source = ./.config/gtk-3.0/settings.ini;
-            ".config/alacritty/alacritty.yml".source = ./.config/alacritty/alacritty.yml;
-            ".config/htop/htoprc".source = ./.config/htop/htoprc;
-            ".config/i3/config".source = ./.config/i3/config;
-            ".config/polybar/config".source = ./.config/polybar/config;
-            ".config/polybar/init.sh".source = ./.config/polybar/init.sh;
-            ".config/rofi/config.rasi".source = ./.config/rofi/config.rasi;
-            ".config/rofi/monokai.rasi".source = ./.config/rofi/monokai.rasi;
-            ".config/discord/settings.json".source = ./.config/discord/settings.json;
-        };
-    
-
     home.packages = with pkgs; [
-      #bazel
       nodejs
       bazel_5
-      arandr
       kbfs
       keybase
       go
       wget
       google-chrome
-      blueman  # Bluetooth
-      evince  #  Pdf reader
+      blueman # Bluetooth
+      evince #  Pdf reader
       gnome3.gnome-screenshot
       gnome.gnome-sound-recorder
       preConfiguredVscode
       signal-desktop
       slack-dark
+      teams
       spotify
       vlc
       nixfmt
       vim
       lshw
       pciutils
-      rtw89-firmware 
+      rtw89-firmware
       google-cloud-sdk
       terraform
       jq
@@ -80,13 +82,15 @@ in
       latest-nixpkgs.zoom-us
       jdk
       # Developing in Python
-      (python38.withPackages(ps : with ps; [ 
-          ipython
-          flake8
-          pycodestyle
-          setuptools
-          virtualenv
-        ]
+      (python38.withPackages (
+        ps:
+          with ps; [
+            ipython
+            flake8
+            pycodestyle
+            setuptools
+            virtualenv
+          ]
       ))
     ];
 
@@ -118,11 +122,11 @@ in
           alignment = "left";
           vertical_alignment = "center";
           word_wrap = "yes";
-          ignore_newline = "no";      
+          ignore_newline = "no";
           stack_duplicates = true;
           # Icons
           icon_position = "left";
-          max_icon_size=32;
+          max_icon_size = 32;
           # Misc/Advanced
           browser = "Vivaldi";
           startup_notification = true;
@@ -167,5 +171,5 @@ in
         theme = "pygmalion";
       };
     };
-        };
+  };
 }
