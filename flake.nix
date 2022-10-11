@@ -73,16 +73,28 @@
         ];
       };
 
-      hosts.zeus = {
-        modules = [
-          ./hosts/zeus/hardware-configuration.nix
-          ./hosts/zeus/configuration.nix
-          ./modules/audio/pulseaudio.nix
-          ./modules/audio/bluetooth.nix
-          ./modules/nvidia-desktop.nix
-          ./users/hackbee.nix
-          ./programs/steam.nix
-        ];
+      hosts = {
+        zeus = {
+          modules = [
+            ./hosts/zeus/hardware-configuration.nix
+            ./hosts/zeus/configuration.nix
+            ./modules/audio/pulseaudio.nix
+            ./modules/audio/bluetooth.nix
+            ./modules/nvidia-desktop.nix
+            ./users/hackbee.nix
+            ./programs/steam.nix
+          ];
+        };
+        athena = {
+          modules = [
+            ./hosts/zeus/hardware-configuration.nix
+            ./hosts/zeus/configuration.nix
+            ./modules/audio/pulseaudio.nix
+            ./modules/audio/bluetooth.nix
+            ./users/hbk.nix
+            ./programs/steam.nix
+          ];
+        };
       };
     };
 }
