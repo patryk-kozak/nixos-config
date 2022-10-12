@@ -8,6 +8,10 @@
     inherit config pkgs latest-nixpkgs;
   };
 in {
+  virtualisation.docker.enable = true;
+
+  users.groups.hackbee = {};
+
   users.users = {
     hackbee = {
       isNormalUser = true;
@@ -24,10 +28,6 @@ in {
       ];
     };
   };
-
-  virtualisation.docker.enable = true;
-
-  users.groups.hackbee = {};
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
