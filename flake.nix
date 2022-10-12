@@ -87,8 +87,8 @@
         };
         athena = {
           modules = [
-            ./hosts/zeus/hardware-configuration.nix
-            ./hosts/zeus/configuration.nix
+            ./hosts/athena/hardware-configuration.nix
+            ./hosts/athena/configuration.nix
             ./modules/audio/pulseaudio.nix
             ./modules/audio/bluetooth.nix
             ./users/hbk.nix
