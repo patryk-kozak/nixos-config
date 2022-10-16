@@ -25,26 +25,17 @@
     };
   };
 
-  outputs = {
-    self,
-    nixpkgs,
-    latest-nixpkgs,
-    home-manager,
+  outputs = { self, nixpkgs, latest-nixpkgs, home-manager,
     #sops-nix,
-    flake-utils-plus,
-    alejandra,
-    ...
-  } @ inputs: let
-    gen-extra-args = system: {
-      latest-nixpkgs = import latest-nixpkgs {
-        inherit system;
-        config = {
-          allowUnfree = true;
+    flake-utils-plus, alejandra, ... }@inputs:
+    let
+      gen-extra-args = system: {
+        latest-nixpkgs = import latest-nixpkgs {
+          inherit system;
+          config = { allowUnfree = true; };
         };
       };
-    };
-  in
-    flake-utils-plus.lib.mkFlake {
+    in flake-utils-plus.lib.mkFlake {
       inherit self inputs;
 
       supportedSystems = [
@@ -52,9 +43,7 @@
         "x86_64-linux"
       ];
 
-      channelsConfig = {
-        allowUnfree = true;
-      };
+      channelsConfig = { allowUnfree = true; };
 
       # Host defaults
       hostDefaults = {
@@ -64,7 +53,8 @@
         modules = [
           home-manager.nixosModules.home-manager
           {
-            environment.systemPackages = [alejandra.defaultPackage.x86_64-linux];
+            environment.systemPackages =
+              [ alejandra.defaultPackage.x86_64-linux ];
           }
           # sops-nix.nixosModules.sops
           # Common stuff
