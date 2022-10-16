@@ -48,10 +48,10 @@ in {
       gcc
       jdk
       (discord.override {
-        version = "0.0.18";
+        version = "0.0.20";
         src = latest-nixpkgs.fetchurl {
-          url = "https://dl.discordapp.net/apps/linux/0.0.18/discord-0.0.18.tar.gz";
-          sha256 = "BBc4n6Q3xuBE13JS3gz/6EcwdOWW57NLp2saOlwOgMI=";
+          url = "https://dl.discordapp.net/apps/linux/0.0.20/discord-0.0.20.tar.gz";
+          sha256 = "3f7yuxigEF3e8qhCetCHKBtV4XUHsx/iYiaCCXjspYw=";
         };
       })
     ];
