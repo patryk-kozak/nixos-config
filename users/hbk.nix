@@ -27,13 +27,12 @@ in {
 
   virtualisation.docker.enable = true;
 
-    users.groups.hackbee = {};
+  users.groups.hbk = {};
 
   home-manager.useGlobalPkgs = true;
   home-manager.useUserPackages = true;
-  home-manager.users.hackbee = {
+  home-manager.users.hbk = {
     home.packages = with pkgs; [
-      vscode
       google-chrome
       git
       evince #  Pdf reader
