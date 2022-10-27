@@ -15,9 +15,15 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
+  boot = {
+    initrd.secrets = {
+      "/crypto_keyfile.bin" = null;
+    };
+    kernelModules = [ "acpi_call" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    kernelParams = [
+      "acpi_backlight=native"
+    ];
   };
 
   # Enable swap on luks
