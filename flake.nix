@@ -73,7 +73,7 @@
             ./modules/nvidia-desktop.nix
             ./users/hackbee.nix
             ./programs/steam.nix
-            ./programs/openssh.nix
+            # ./programs/openssh.nix
           ];
         };
         athena = {
@@ -84,7 +84,7 @@
             ./modules/audio/bluetooth.nix
             ./users/hbk.nix
             ./programs/steam.nix
-            ./programs/tailscale.nix
+            # ./programs/tailscale.nix
             ./programs/openvpn.nix
           ];
         };
