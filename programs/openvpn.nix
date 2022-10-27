@@ -4,6 +4,6 @@
   ...
 }: {
   services.openvpn.servers = {
-    nordVPN  = { config = '' config /home/$USER/openvpn/nordVPN.conf ''; };
+    us = { config = '' config /home/$USER/openvpn/us.ovpn.com.ovpn ''; };
   };
 }
