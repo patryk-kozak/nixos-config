@@ -39,7 +39,6 @@
       inherit self inputs;
 
       supportedSystems = [
-        #"aarch64-linux"
         "x86_64-linux"
       ];
 
@@ -56,26 +55,10 @@
             environment.systemPackages =
               [ alejandra.defaultPackage.x86_64-linux ];
           }
-          # sops-nix.nixosModules.sops
-          # Common stuff
-          #./modules/common-base.nix
-          #./modules/secrets.nix
         ];
       };
 
       hosts = {
-        zeus = {
-          modules = [
-            ./hosts/zeus/hardware-configuration.nix
-            ./hosts/zeus/configuration.nix
-            ./modules/audio/pulseaudio.nix
-            ./modules/audio/bluetooth.nix
-            ./modules/nvidia-desktop.nix
-            ./users/hackbee.nix
-            ./programs/steam.nix
-            # ./programs/openssh.nix
-          ];
-        };
         athena = {
           modules = [
             ./hosts/athena/hardware-configuration.nix
