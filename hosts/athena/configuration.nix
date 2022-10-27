@@ -59,7 +59,7 @@
 
   environment.systemPackages = [
     pkgs.gnome.gnome-tweaks
-    pkgs.libwebcam
+    pkgs.usbutils
   ];
 
   # Configure keymap in X11
