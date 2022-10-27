@@ -3,7 +3,12 @@
   pkgs,
   ...
 }: {
-  services.openvpn.servers = {
-    us = { config = '' config /home/hbk/openvpn/us.ovpn.com.ovpn ''; };
+  services.openvpn = {
+    servers = {
+      us = {
+        autoStart = false;
+        config = '' config /home/hbk/openvpn/us.ovpn.com.ovpn ''; 
+      };
+    };
   };
 }
