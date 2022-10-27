@@ -80,12 +80,12 @@
           modules = [
             ./hosts/athena/hardware-configuration.nix
             ./hosts/athena/configuration.nix
-            ./modules/audio/pulseaudio.nix
-            ./modules/audio/bluetooth.nix
+            ./modules/bluetooth.nix
+            ./modules/pipewire.nix
+            ./modules/openvpn.nix
             ./users/hbk.nix
             ./programs/steam.nix
             # ./programs/tailscale.nix
-            ./programs/openvpn.nix
           ];
         };
       };
