@@ -19,8 +19,8 @@
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
     };
-    kernelModules = [ "acpi_call" ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call ];
+    kernelModules = [ "acpi_call" "v4l2loopback" ];
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call v4l2loopback ];
     kernelParams = [
       "acpi_backlight=native"
     ];
@@ -66,6 +66,7 @@
   environment.systemPackages = [
     pkgs.gnome.gnome-tweaks
     pkgs.usbutils
+    pkgs.v4l-utils
   ];
 
   # Configure keymap in X11
@@ -80,6 +81,12 @@
   security.rtkit.enable = true;
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
 
   system = {
     autoUpgrade.enable = false;
