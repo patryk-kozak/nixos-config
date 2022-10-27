@@ -40,7 +40,6 @@ in {
       gnome.gnome-sound-recorder
       preConfiguredVscode
       slack
-      teams
       spotify
       nixfmt
       vim
