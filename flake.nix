@@ -83,6 +83,7 @@
             ./modules/audio/bluetooth.nix
             ./users/hbk.nix
             ./programs/steam.nix
+            ./programs/tailscale.nix
           ];
         };
       };
