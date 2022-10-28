@@ -65,6 +65,7 @@
 
   environment.systemPackages = [
     pkgs.gnome.gnome-tweaks
+    pkgs.coreutils
     pkgs.usbutils
     pkgs.v4l-utils
   ];

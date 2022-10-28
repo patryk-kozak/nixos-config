@@ -7,7 +7,7 @@
     servers = {
       us = {
         autoStart = false;
-        config = '' config /home/hbk/openvpn/us.ovpn.com.ovpn ''; 
+        config = '' config /home/hbk/openvpn/nord.ovpn ''; 
       };
     };
   };
