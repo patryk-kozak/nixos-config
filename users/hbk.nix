@@ -46,6 +46,7 @@ in {
       lshw
       gcc
       jdk
+      v4l-utils
       (discord.override {
         version = "0.0.21";
         src = latest-nixpkgs.fetchurl {
