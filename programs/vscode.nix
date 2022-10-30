@@ -4,7 +4,7 @@
   latest-nixpkgs,
   ...
 }: let
-  preConfiguredVscode = pkgs.vscode-with-extensions.override {
+  preConfiguredVscode = latest-nixpkgs.vscode-with-extensions.override {
     vscodeExtensions =
       [
         latest-nixpkgs.vscode-extensions.arrterian.nix-env-selector

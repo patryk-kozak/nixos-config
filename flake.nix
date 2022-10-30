@@ -66,6 +66,7 @@
             ./modules/bluetooth.nix
             ./modules/pipewire.nix
             ./modules/openvpn.nix
+            ./modules/elgato.nix
             ./users/hbk.nix
             ./programs/steam.nix
             # ./programs/tailscale.nix
