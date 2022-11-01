@@ -37,6 +37,8 @@ in {
       git
       wget
       google-cloud-sdk
+      kubectl
+      k9s
       evince #  Pdf reader
       gnome3.gnome-screenshot
       gnome.gnome-sound-recorder
