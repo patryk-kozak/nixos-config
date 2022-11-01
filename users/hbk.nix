@@ -35,6 +35,8 @@ in {
     home.packages = with pkgs; [
       google-chrome
       git
+      wget
+      google-cloud-sdk
       evince #  Pdf reader
       gnome3.gnome-screenshot
       gnome.gnome-sound-recorder
