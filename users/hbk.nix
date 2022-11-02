@@ -39,6 +39,7 @@ in {
       google-cloud-sdk
       kubectl
       k9s
+      terraform
       evince #  Pdf reader
       gnome3.gnome-screenshot
       gnome.gnome-sound-recorder
