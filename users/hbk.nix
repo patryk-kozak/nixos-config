@@ -37,7 +37,10 @@ in {
       git
       wget
       google-cloud-sdk
-      kubectl
+      latest-nixpkgs.kubectl
+      latest-nixpkgs.kustomize
+      latest-nixpkgs.kubernetes-helm
+      etcher
       k9s
       terraform
       evince #  Pdf reader
