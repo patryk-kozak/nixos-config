@@ -40,7 +40,7 @@ in {
       latest-nixpkgs.kubectl
       latest-nixpkgs.kustomize
       latest-nixpkgs.kubernetes-helm
-      unetbootin
+      woeusb
       k9s
       terraform
       evince #  Pdf reader
