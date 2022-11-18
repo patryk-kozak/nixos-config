@@ -40,7 +40,6 @@ in {
       latest-nixpkgs.kubectl
       latest-nixpkgs.kustomize
       latest-nixpkgs.kubernetes-helm
-      woeusb
       k9s
       terraform
       evince #  Pdf reader
@@ -63,6 +62,8 @@ in {
         };
       })
     ];
+
+    programs.go.enable = true;
 
     programs.tmux = {
       enable = true;
