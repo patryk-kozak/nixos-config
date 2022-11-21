@@ -22,7 +22,7 @@
     kernelModules = [ "acpi_call" "v4l2loopback" ];
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call v4l2loopback ];
     extraModprobeConfig = ''
-      options v4l2loopback devices=2 exclusive_caps=1 video_nr=10 card_label="elgato"
+      options v4l2loopback video_nr=11 card_label="ElGato FaceCam"
     '';
     kernelParams = [
       "acpi_backlight=native"
@@ -70,7 +70,7 @@
     pkgs.gnome.gnome-tweaks
     pkgs.coreutils
     pkgs.usbutils
-    pkgs.gphoto2
+    pkgs.v4l-utils
     pkgs.ffmpeg
   ];
 
