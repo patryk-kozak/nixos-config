@@ -21,9 +21,6 @@
     };
     kernelModules = [ "acpi_call" "v4l2loopback" ];
     extraModulePackages = with config.boot.kernelPackages; [ acpi_call v4l2loopback ];
-    extraModprobeConfig = ''
-      options v4l2loopback video_nr=11 card_label="ElGato FaceCam"
-    '';
     kernelParams = [
       "acpi_backlight=native"
     ];

@@ -68,7 +68,8 @@
             ./modules/openvpn.nix
             ./users/hbk.nix
             ./programs/steam.nix
-            ./programs/elgato.nix
+            #TODO: nixify sh script to nixauto
+            #./programs/elgato.nix
             # ./programs/tailscale.nix
           ];
         };
