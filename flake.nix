@@ -68,7 +68,7 @@
             ./modules/openvpn.nix
             ./users/hbk.nix
             ./programs/steam.nix
-            ./programs/webcam.nix
+            ./programs/elgato.nix
             # ./programs/tailscale.nix
           ];
         };
