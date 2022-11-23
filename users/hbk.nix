@@ -52,6 +52,7 @@ in {
       vim
       lshw
       gcc
+      drawio
       jdk
       v4l-utils
       (discord.override {
