@@ -36,6 +36,7 @@ in {
       google-chrome
       git
       wget
+      nomacs
       google-cloud-sdk
       latest-nixpkgs.kubectl
       latest-nixpkgs.kustomize

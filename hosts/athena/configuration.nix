@@ -19,11 +19,17 @@
     initrd.secrets = {
       "/crypto_keyfile.bin" = null;
     };
+    
+    extraModulePackages = with config.boot.kernelPackages; [ acpi_call v4l2loopback.out ];
+
     kernelModules = [ "acpi_call" "v4l2loopback" ];
-    extraModulePackages = with config.boot.kernelPackages; [ acpi_call v4l2loopback ];
+
     kernelParams = [
       "acpi_backlight=native"
     ];
+    extraModprobeConfig = ''
+      options v4l2loopback exclusive_caps=1 video_nr=6 card_label="Elgato FaceCam"
+    '';
   };
 
   # Enable swap on luks
