@@ -7,6 +7,6 @@ v4l2-ctl -d /dev/v4l/by-id/$DEV_ID \
 
 # /dev/video6 is a v4l2loopback device we want to send signal to
 # configured at hosts/${name}/configuration.nix with kernel modules and modProbeConfig
-ffmpeg -f v4l2 -input_format yuyv422 -framerate 60 -video_size 1920x1080 \
+ffmpeg -f v4l2 -input_format yuyv422 -framerate 40 -video_size 1280x720 \
     -i /dev/v4l/by-id/$DEV_ID \
     -pix_fmt yuyv422 -f v4l2 /dev/video6
