@@ -37,7 +37,7 @@ in {
       git
       wget
       nomacs
-      google-cloud-sdk
+      latest-nixpkgs.google-cloud-sdk
       latest-nixpkgs.kubectl
       latest-nixpkgs.kustomize
       latest-nixpkgs.kubernetes-helm
@@ -54,6 +54,9 @@ in {
       lshw
       gcc
       drawio
+      jq
+      unzip
+      nodejs-16_x
       jdk
       v4l-utils
       (discord.override {
