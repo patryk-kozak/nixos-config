@@ -3,7 +3,7 @@ set -xe
 
 DEV_ID=$(ls /dev/v4l/by-id/ | grep -x 'usb-Elgato.*-video-index0')
 v4l2-ctl -d /dev/v4l/by-id/$DEV_ID \
-    --set-ctrl="exposure_auto=0,zoom_absolute=6,brightness=160,sharpness=1,contrast=1,saturation=28,white_balance_temperature_auto=0,white_balance_temperature=4400"
+    --set-ctrl="exposure_auto=0,zoom_absolute=5,brightness=160,sharpness=1,contrast=1,saturation=28,white_balance_temperature_auto=0,white_balance_temperature=4400"
 
 # /dev/video6 is a v4l2loopback device we want to send signal to
 # configured at hosts/${name}/configuration.nix with kernel modules and modProbeConfig

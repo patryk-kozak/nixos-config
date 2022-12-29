@@ -59,6 +59,9 @@ in {
       nodejs-16_x
       jdk
       v4l-utils
+      jetbrains.idea-community
+      shfmt
+      shellcheck
       (discord.override {
         version = "0.0.21";
         src = latest-nixpkgs.fetchurl {
