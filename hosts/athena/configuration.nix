@@ -98,6 +98,6 @@
 
   system = {
     autoUpgrade.enable = false;
-    stateVersion = "22.05";
+    stateVersion = "22.11";
   };
 }
