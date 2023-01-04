@@ -37,8 +37,12 @@ in {
       git
       wget
       nomacs
-      latest-nixpkgs.google-cloud-sdk
-      latest-nixpkgs.kubectl
+      (
+        latest-nixpkgs.google-cloud-sdk.withExtraComponents [
+          latest-nixpkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+          latest-nixpkgs.google-cloud-sdk.components.kubectl
+        ]
+      )
       latest-nixpkgs.kustomize
       latest-nixpkgs.kubernetes-helm
       k9s
