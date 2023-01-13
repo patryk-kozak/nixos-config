@@ -14,5 +14,5 @@ cd ~ && git clone git@github.com:patryk-kozak/nixos-config.git
 ```
 
 ```bash
-sudo nixos-rebuild switch --flake ~/nixos-config --impure
+sudo nixos-rebuild switch --flake ~/nixos-config
 ```
