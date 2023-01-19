@@ -58,6 +58,9 @@ in {
       lshw
       gcc
       drawio
+      yarn
+      python3
+      dive
       jq
       unzip
       nodejs-16_x
