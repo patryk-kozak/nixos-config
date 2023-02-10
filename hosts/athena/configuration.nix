@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, latest-nixpkgs, ... }:
 
 {
   imports =
@@ -75,7 +75,7 @@
     pkgs.usbutils
     pkgs.v4l-utils
     pkgs.ffmpeg
-    pkgs.globalprotect-openconnect
+    latest-nixpkgs.globalprotect-openconnect
   ];
 
   # Configure keymap in X11
@@ -86,8 +86,8 @@
 
   # TODO: refactor to work-specific configs stored in non-public repository
   services.globalprotect = {
-    enable = true;
-    csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
+    enable = false;
+    csdWrapper = "${latest-nixpkgs.openconnect}/libexec/openconnect/hipreport.sh";
   };
 
   # Enable CUPS to print documents.
@@ -100,7 +100,7 @@
   nix.gc = {
     automatic = true;
     dates = "weekly";
-    options = "--delete-older-than 14d";
+    options = "--delete-older-than 7d";
   };
 
   system = {
