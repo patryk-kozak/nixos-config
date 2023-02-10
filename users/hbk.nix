@@ -33,7 +33,7 @@ in {
   home-manager.useUserPackages = true;
   home-manager.users.hbk = {
     home.packages = with pkgs; [
-      google-chrome
+      latest-nixpkgs.google-chrome
       git
       wget
       nomacs
