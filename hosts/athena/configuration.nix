@@ -75,12 +75,19 @@
     pkgs.usbutils
     pkgs.v4l-utils
     pkgs.ffmpeg
+    pkgs.globalprotect-openconnect
   ];
 
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
     xkbVariant = "";
+  };
+
+  # TODO: refactor to work-specific configs stored in non-public repository
+  services.globalprotect = {
+    enable = true;
+    csdWrapper = "${pkgs.openconnect}/libexec/openconnect/hipreport.sh";
   };
 
   # Enable CUPS to print documents.
