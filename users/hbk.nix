@@ -47,6 +47,7 @@ in {
       kubernetes-helm
       k9s
       terraform
+      dbeaver
       evince #  Pdf reader
       gnome3.gnome-screenshot
       gnome.gnome-sound-recorder
