@@ -100,7 +100,7 @@ in
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.dbus.enable = true;
-
+  security.polkit.enable = true;
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -120,18 +120,42 @@ in
     dbus-sway-environment
     configure-gtk
     gnome3.adwaita-icon-theme
-    swaylock
-    swayidle
-    grim
-    slurp
-    wl-clipboard
-    bemenu
-    mako
   ];
 
   programs.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    extraPackages = with pkgs; [
+      swaylock
+      swayidle
+      wl-clipboard
+      wf-recorder
+      mako # notification daemon
+      grim
+      kanshi
+      slurp
+      alacritty
+      wofi # dmenu replacement for Wayland
+      xwayland
+      gsettings-desktop-schemas
+    ];
+    extraSessionCommands = ''
+      export SDL_VIDEODRIVER=wayland
+      export QT_QPA_PLATFORM=wayland
+      export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+      export _JAVA_AWT_WM_NONREPARENTING=1
+      export MOZ_ENABLE_WAYLAND=1
+    '';
+  };
+
+  programs.waybar.enable = true;
+
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
   };
 
   fonts = {
