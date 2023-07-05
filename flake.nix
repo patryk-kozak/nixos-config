@@ -65,12 +65,7 @@
             ./hosts/athena/configuration.nix
             ./modules/bluetooth.nix
             ./modules/pipewire.nix
-            ./modules/openvpn.nix
             ./users/hbk.nix
-            ./programs/steam.nix
-            #TODO: nixify sh script to nixauto
-            #./programs/elgato.nix
-            # ./programs/tailscale.nix
           ];
         };
       };
