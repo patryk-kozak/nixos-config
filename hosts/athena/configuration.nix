@@ -100,7 +100,7 @@ in
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.dbus.enable = true;
-  xdg.configFile."sway/config".source = "./sway.config";
+  xdg.configFile."sway/config".source = "./sway.config"
   xdg.portal = {
     enable = true;
     wlr.enable = true;
