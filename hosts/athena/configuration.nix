@@ -100,7 +100,7 @@ in
   # services.xserver.desktopManager.gnome.enable = true;
 
   services.dbus.enable = true;
-
+  xdg.configFile."sway/config".source = "./sway.config";
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -119,7 +119,7 @@ in
     glib
     dbus-sway-environment
     configure-gtk
-    gnome3.adwaita-icon-theme
+    gnome3.adawaita-icon-theme
     swaylock
     swayidle
     grim
@@ -149,8 +149,6 @@ in
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
   };
-
-  #xdg.configFile."sway/config".source = "./hosts/athena/sway.config";
 
   # Configure keymap in X11
   services.xserver = {
