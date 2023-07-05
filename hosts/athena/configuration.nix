@@ -3,35 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, latest-nixpkgs, ... }:
-let
 
-  dbus-sway-environment = pkgs.writeTextFile {
-    name = "dbus-sway-environment";
-    destination = "/bin/dbus-sway-environment";
-    executable = true;
-
-    text = ''
-  dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-  systemctl --user stop pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-  systemctl --user start pipewire pipewire-media-session xdg-desktop-portal xdg-desktop-portal-wlr
-      '';
-  };
-
-  configure-gtk = pkgs.writeTextFile {
-      name = "configure-gtk";
-      destination = "/bin/configure-gtk";
-      executable = true;
-      text = let
-        schema = pkgs.gsettings-desktop-schemas;
-        datadir = "${schema}/share/gsettings-schemas/${schema.name}";
-      in ''
-        export XDG_DATA_DIRS=${datadir}:$XDG_DATA_DIRS
-        gnome_schema=org.gnome.desktop.interface
-        gsettings set $gnome_schema gtk-theme 'Dracula'
-        '';
-  };
-
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -90,48 +62,51 @@ in
     LC_TELEPHONE = "pl_PL.utf8";
     LC_TIME = "pl_PL.utf8";
   };
-  
+
   # Enable the X11 windowing system.
   # services.xserver.enable = true;
+
   # Enable the GNOME Desktop Environment.
-  # services.xserver.displayManager.gdm.enable = true;
-  # services.xserver.displayManager.gdm.wayland = false;
-  # services.xserver.desktopManager.plasma5.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.displayManager.gdm.wayland = false;
+  services.xserver.desktopManager.plasma5.enable = true;
   # services.xserver.desktopManager.gnome.enable = true;
 
-  services.dbus.enable = true;
-  xdg.configFile."sway/config".source = "./sway.config"
-  xdg.portal = {
-    enable = true;
-    wlr.enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+  programs = {
+    waybar.enable = true;
+    qt5ct.enable = true;
+    light.enable = true;
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true; # so that gtk works properly
+      extraPackages = with pkgs; [
+        swaylock
+        swayidle
+        wl-clipboard
+        wf-recorder
+        mako # notification daemon
+        grim
+        #kanshi
+        slurp
+        alacritty # Alacritty is the default terminal in the config
+        dmenu # Dmenu is the default in the config but i recommend wofi since its wayland native
+    ];
+      extraSessionCommands = ''
+        export SDL_VIDEODRIVER=wayland
+        export QT_QPA_PLATFORM=wayland
+        export QT_WAYLAND_DISABLE_WINDOWDECORATION="1"
+        export _JAVA_AWT_WM_NONREPARENTING=1
+        export MOZ_ENABLE_WAYLAND=1
+      '';
+    };
   };
 
-  environment.systemPackages = with pkgs; [
-    coreutils
-    usbutils
-    v4l-utils
-    ffmpeg
-    latest-nixpkgs.globalprotect-openconnect
-    sway
-    wayland
-    xdg-utils
-    glib
-    dbus-sway-environment
-    configure-gtk
-    gnome3.adawaita-icon-theme
-    swaylock
-    swayidle
-    grim
-    slurp
-    wl-clipboard
-    bemenu
-    mako
-  ];
-
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
+  systemd.user.services.kanshi = {
+    description = "kanshi daemon";
+    serviceConfig = {
+      Type = "simple";
+      ExecStart = ''${pkgs.kanshi}/bin/kanshi -c kanshi_config_file'';
+    };
   };
 
   fonts = {
@@ -149,6 +124,15 @@ in
       sansSerif = [ "Noto Sans" "Source Han Sans" ];
     };
   };
+
+  environment.systemPackages = [
+    pkgs.gnome.gnome-tweaks
+    pkgs.coreutils
+    pkgs.usbutils
+    pkgs.v4l-utils
+    pkgs.ffmpeg
+    latest-nixpkgs.globalprotect-openconnect
+  ];
 
   # Configure keymap in X11
   services.xserver = {
