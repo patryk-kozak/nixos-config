@@ -17,6 +17,7 @@ in {
         "wheel"
         "docker"
       ];
+      ignoreShellProgramCheck = true;
       shell = pkgs.lib.mkForce pkgs.zsh;
     #   openssh.authorizedKeys.keyFiles = [
     #     # needs --impure T_T fix it!
@@ -47,14 +48,14 @@ in {
       kubernetes-helm
       k9s
       terraform
-      dbeaver
+      dbeaver-bin
       evince #  Pdf reader
       gnome3.gnome-screenshot
       gnome.gnome-sound-recorder
       preConfiguredVscode
       slack
       spotify
-      nixfmt
+      nixfmt-rfc-style
       vim
       lshw
       gcc
@@ -64,19 +65,13 @@ in {
       dive
       jq
       unzip
-      nodejs-16_x
+      nodejs_20
       jdk
       v4l-utils
       jetbrains.idea-community
       shfmt
       shellcheck
-      (discord.override {
-        version = "0.0.21";
-        src = latest-nixpkgs.fetchurl {
-          url = "https://dl.discordapp.net/apps/linux/0.0.21/discord-0.0.21.tar.gz";
-          sha256 = "sha256-KDKUssPRrs/D10s5GhJ23hctatQmyqd27xS9nU7iNaM=";
-        };
-      })
+      discord
     ];
 
     programs.go.enable = true;
@@ -88,7 +83,7 @@ in {
 
     programs.zsh = {
       enable = true;
-      enableAutosuggestions = true;
+      autosuggestion.enable = true;
       enableCompletion = true;
 
       shellAliases = {};
@@ -104,5 +99,7 @@ in {
         theme = "pygmalion";
       };
     };
+
+    home.stateVersion = "24.05";
   };
 }

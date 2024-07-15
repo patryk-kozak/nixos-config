@@ -105,6 +105,6 @@
 
   system = {
     autoUpgrade.enable = false;
-    stateVersion = "23.05";
+    stateVersion = "24.05";
   };
 }
