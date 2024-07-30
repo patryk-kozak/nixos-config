@@ -19,10 +19,6 @@ in {
       ];
       ignoreShellProgramCheck = true;
       shell = pkgs.lib.mkForce pkgs.zsh;
-    #   openssh.authorizedKeys.keyFiles = [
-    #     # needs --impure T_T fix it!
-    #     /home/hackbee/.ssh/authorized_keys
-    #   ];
     };
   };
 

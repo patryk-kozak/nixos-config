@@ -11,6 +11,7 @@
         latest-nixpkgs.vscode-extensions.ms-vscode.makefile-tools
         latest-nixpkgs.vscode-extensions.redhat.vscode-yaml
         latest-nixpkgs.vscode-extensions.tomoki1207.pdf
+        latest-nixpkgs.vscode-extensions.ms-kubernetes-tools.vscode-kubernetes-tools
         latest-nixpkgs.vscode-extensions.arrterian.nix-env-selector
         pkgs.vscode-extensions.bbenoist.nix
         latest-nixpkgs.vscode-extensions.jnoortheen.nix-ide
